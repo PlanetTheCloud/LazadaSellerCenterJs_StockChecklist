@@ -7,21 +7,22 @@ var SellerCenterJs_StockChecklist = {
             : false;
     },
     handleSelect(item) {
+        this.injectButtonIfNeeded();
         this.toggleSelection(item);
     },
-    stripName(name){
+    stripName(name) {
         return name
             .replace(' MURAH', '');
     },
-    getVariation(sku){
+    getVariation(sku) {
         let splitted = sku.split('/');
         let variation = splitted[splitted.length - 1];
-        if(variation.length > 15){
+        if (variation.length > 15) {
             return '';
         }
         return ` (${variation})`;
     },
-    parseOrderNumbers(orders){
+    parseOrderNumbers(orders) {
         let numbers = orders.split(', ');
         var toReturn = '';
         numbers.forEach((e) => {
@@ -67,7 +68,7 @@ var SellerCenterJs_StockChecklist = {
             ? 'white'
             : 'black';
     },
-    registerClickHandler: () => {
+    registerClickHandler() {
         document.addEventListener("click", (e) => {
             if (e.target.parentElement.classList[0] !== 'image-cell') {
                 return;
@@ -82,6 +83,12 @@ var SellerCenterJs_StockChecklist = {
                 quantity: x.childNodes[9].innerText,
             });
         });
+    },
+    injectButtonIfNeeded() {
+        let element = document.getElementsByClassName('la-print-header')[0].firstElementChild;
+        if (!element.innerHTML.includes('Open Selected')) {
+            element.innerHTML += `<a href="javascript:void(0)" class="next-btn next-btn-normal next-btn-medium" onclick="SellerCenterJs_StockChecklist.openSelected()">Open Selected</a>`;
+        }
     },
     run() {
         this.registerClickHandler();

@@ -8,7 +8,8 @@ This is mainly my personal use, but if you encounter any issues with it, please 
 Inject to page with extensions like [User Javascript and CSS](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld/).
 
 # Usage
-Although this is meant to be used on older version of Seller Center, this also works on the newer version minus the sytling.  
+**NOTE**: Although this is meant to be used on older version of Seller Center, this also works on the newer version minus the sytling.  
+
 Select all or few orders and print Stock Checklist / Item Picklist.  
 You can then select the items by clicking on their picture/image.  
 Selected items will be highlighted with green background color.  
